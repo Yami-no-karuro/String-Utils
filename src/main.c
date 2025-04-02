@@ -44,7 +44,7 @@ char *str_replace_all(const char *subject, const char *search, const char *repla
 {
     char *result = str_replace(subject, search, replace);
     if (!result)
-        return strdup(subject);
+        return NULL;
     
     char *next_result;
     while ((next_result = str_replace(result, search, replace)) != NULL) {
