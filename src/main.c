@@ -34,8 +34,8 @@ char *str_replace(const char *subject, const char *search, const char *replace)
 
 int main() 
 {
-    char *input = "Hello, my name is Carletto and i'm a software developer!";
-    char *output = str_replace(input, "Carletto", "Yami-no-karuro");
+    char *input = "Hello, my name is Carlo and i'm a software developer!";
+    char *output = str_replace(input, "Carlo", "Yami-no-karuro");
 
     printf("Input: %s\n", input);
     printf("Output: %s\n", output);
