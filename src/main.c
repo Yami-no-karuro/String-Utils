@@ -7,8 +7,8 @@ int main()
     char *input = "Hello, my name is Carlo and i'm a software developer!";
     char *output = str_replace(input, "Carlo", "Yami-no-karuro");
 
-    printf("Input: %s\n", input);
-    printf("Output: %s\n", output);
+    printf("%s\n", input);
+    printf("%s\n", output);
     free(output);
 
     return 0;
