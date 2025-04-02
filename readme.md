@@ -1,6 +1,6 @@
 # C - String Utils
 
-## A set of string manipulation tools for C
+## A small set of string manipulation tools
 
 ### API
 
