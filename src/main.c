@@ -8,7 +8,7 @@
  * @param subject - The original string in which the replacement is performed.
  * @param search - The substring to be replaced.
  * @param replace - The substring to replace the search string.
- * @return - The resulting string. 
+ * @return - The resulting string.
  */
 char *str_replace(const char *subject, const char *search, const char *replace)
 {
@@ -28,6 +28,29 @@ char *str_replace(const char *subject, const char *search, const char *replace)
     strncpy(result, subject, offset_index);
     strcpy(result + offset_index, replace);
     strcpy(result + offset_index + replace_length, subject + offset_index + search_length);
+
+    return result;
+}
+
+/**
+ * Replaces all occurrences of a substring within a string with another substring.
+ *
+ * @param subject - The original string in which the replacements are performed.
+ * @param search - The substring to be replaced.
+ * @param replace - The substring to replace the search string.
+ * @return - The resulting string with all occurrences replaced.
+ */
+char *str_replace_all(const char *subject, const char *search, const char *replace)
+{
+    char *result = str_replace(subject, search, replace);
+    if (!result)
+        return strdup(subject);
+    
+    char *next_result;
+    while ((next_result = str_replace(result, search, replace)) != NULL) {
+        free(result);
+        result = next_result;
+    }
 
     return result;
 }
