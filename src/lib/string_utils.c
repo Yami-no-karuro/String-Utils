@@ -4,6 +4,18 @@
 #include "string_utils.h"
 
 /**
+ * Checks if a substring is contained within a string.
+ *
+ * @param subject - The original string to search within.
+ * @param search - The substring to look for.
+ * @return - 1 if the substring is found, 0 otherwise.
+ */
+int str_contains(const char *subject, const char *search)
+{
+    return strstr(subject, search) != NULL;
+}
+
+/**
  * Replaces the first occurrence of a substring within a string with another substring.
  *
  * @param subject - The original string in which the replacement is performed.
