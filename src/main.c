@@ -2,6 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * Replaces the first occurrence of a substring within a string with another substring.
+ *
+ * @param subject - The original string in which the replacement is performed.
+ * @param search - The substring to be replaced.
+ * @param replace - The substring to replace the search string.
+ * @return - The resulting string. 
+ */
 char *str_replace(const char *subject, const char *search, const char *replace)
 {
     char *offset = strstr(subject, search);
@@ -24,8 +32,9 @@ char *str_replace(const char *subject, const char *search, const char *replace)
     return result;
 }
 
-int main() {
-    char *input = "Hello, my name is Carletto and i am a software developer!";
+int main() 
+{
+    char *input = "Hello, my name is Carletto and i'm a software developer!";
     char *output = str_replace(input, "Carletto", "Yami-no-karuro");
 
     printf("Input: %s\n", input);
