@@ -1,6 +1,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include "string_utils.h"
 
 /**
@@ -13,6 +14,33 @@
 int str_contains(const char *subject, const char *search)
 {
     return strstr(subject, search) != NULL;
+}
+
+/**
+ * Removes leading and trailing whitespace characters from a string.
+ *
+ * @param subject - The original string to trim.
+ * @return - The resulting string.
+ */
+char *str_trim(const char *subject)
+{
+    const char *start = subject;
+    while (*start && isspace((unsigned char)*start))
+        start++;
+
+    const char *end = subject + strlen(subject) - 1;
+    while (end > start && isspace((unsigned char)*end))
+        end--;
+
+    size_t trimmed_len = end - start + 1;
+    char *result = (char *)malloc(trimmed_len + 1);
+    if (!result)
+        return NULL;
+
+    strncpy(result, start, trimmed_len);
+    result[trimmed_len] = '\0';
+
+    return result;
 }
 
 /**
