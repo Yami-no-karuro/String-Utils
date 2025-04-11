@@ -2,7 +2,9 @@
 
 ## A small set of string manipulation tools
 
-### API
+### - str_contains()
+
+Scans the given subject string to determine whether the specified search string is present within it.
 
 ```c
 /**
@@ -15,6 +17,12 @@
 int str_contains(const char *subject, const char *search);
 ```
 
+### - str_replace()
+
+Allocates and returns a new string where the first occurrence of 'search' in 'subject' is replaced with 'replace'.  
+If the 'search' substring is not found, NULL is returned.  
+The caller is responsible for freeing the returned string.
+
 ```c
 /**
  * Replaces the first occurrence of a substring within a string with another substring.
@@ -26,6 +34,11 @@ int str_contains(const char *subject, const char *search);
  */
 char *str_replace(const char *subject, const char *search, const char *replace);
 ```
+
+### - str_replace_all()
+
+Iteratively replaces every instance of 'search' in 'subject' with 'replace', returning a newly allocated string containing all the modifications.  
+The caller is responsible for freeing the returned string.
 
 ```c
 /**
