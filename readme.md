@@ -8,13 +8,28 @@ Scans the given subject string to determine whether the specified search string 
 
 ```c
 /**
- * Checks if a substring is contained within a string.
+ * Scans the given subject string to determine whether the specified search string is present within it.
  *
  * @param subject - The original string to search within.
  * @param search - The substring to look for.
  * @return - 1 if the substring is found, 0 otherwise.
  */
 int str_contains(const char *subject, const char *search);
+```
+
+### - str_count()
+
+Counts the number of non-overlapping occurrences of a substring.
+
+```c
+/**
+ * Counts the number of non-overlapping occurrences of a substring within a string.
+ *
+ * @param subject - The original string to search within.
+ * @param search - The substring to look for.
+ * @return - The number of times the substring appears in the subject string.
+ */
+int str_count(const char *subject, const char *search)
 ```
 
 ### - str_trim()

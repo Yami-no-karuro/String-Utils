@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+
 #include "string_utils.h"
 
 /**
@@ -14,6 +15,25 @@
 int str_contains(const char *subject, const char *search)
 {
     return strstr(subject, search) != NULL;
+}
+
+/**
+ * Counts the number of non-overlapping occurrences of a substring within a string.
+ *
+ * @param subject - The original string to search within.
+ * @param search - The substring to look for.
+ * @return - The number of times the substring appears in the subject string.
+ */
+int str_count(const char *subject, const char *search)
+{
+    int count = 0;
+    const char *pos = subject;
+    while ((pos = strstr(pos, search)) != NULL) {
+        count++;
+        pos += strlen(search);
+    }
+
+    return count;
 }
 
 /**
