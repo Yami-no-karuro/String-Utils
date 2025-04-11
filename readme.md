@@ -17,6 +17,21 @@ Scans the given subject string to determine whether the specified search string 
 int str_contains(const char *subject, const char *search);
 ```
 
+### - str_trim()
+
+Removes whitespace (such as spaces, tabs, and newlines) from the beginning and end of a string.  
+The caller is responsible for freeing the returned string.
+
+```c
+/**
+ * Removes leading and trailing whitespace characters from a string.
+ *
+ * @param subject - The original string to trim.
+ * @return - The resulting string.
+ */
+char *str_trim(const char *subject);
+```
+
 ### - str_replace()
 
 Allocates and returns a new string where the first occurrence of 'search' in 'subject' is replaced with 'replace'.  
