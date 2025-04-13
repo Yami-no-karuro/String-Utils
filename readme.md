@@ -34,7 +34,7 @@ int str_count(const char *subject, const char *search);
 
 ### - str_split()
 
-Splits a string into tokens based on a specified delimiter.
+Splits a string into tokens based on a specified delimiter.  
 The caller is responsible for freeing the returned array.
 
 ```c
@@ -62,7 +62,8 @@ void str_split_free(char **tokens)
 
 ### - str_join()
 
-Joins an array of strings into a single string using the specified delimiter.
+Joins an array of strings into a single string using the specified delimiter.  
+The caller is responsible for freeing the returned array.
 
 ```c
 /**
@@ -77,7 +78,7 @@ char *str_join(char **strings, const char *delimiter)
 
 ### - str_trim()
 
-Removes leading and trailing whitespace characters from a string.
+Removes leading and trailing whitespace characters from a string.  
 The caller is responsible for freeing the returned string.
 
 ```c
@@ -92,8 +93,8 @@ char *str_trim(const char *subject);
 
 ### - str_replace()
 
-Replaces the first occurrence of a substring within a string with another substring.
-If the 'search' substring is not found, NULL is returned.
+Replaces the first occurrence of a substring within a string with another substring.  
+If the 'search' substring is not found, NULL is returned.  
 The caller is responsible for freeing the returned string.
 
 ```c
@@ -110,7 +111,7 @@ char *str_replace(const char *subject, const char *search, const char *replace);
 
 ### - str_replace_all()
 
-Replaces all occurrences of a substring within a string with another substring.
+Replaces all occurrences of a substring within a string with another substring.  
 The caller is responsible for freeing the returned string.
 
 ```c
