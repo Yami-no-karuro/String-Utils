@@ -60,6 +60,21 @@ void str_split_free(char **tokens)
 }
 ```
 
+### - str_join()
+
+Joins an array of strings into a single string using the specified delimiter.
+
+```c
+/**
+ * Joins an array of strings into a single string using the specified delimiter.
+ *
+ * @param strings - A NULL-terminated array of strings to join.
+ * @param delimiter - The string to insert between each pair of strings.
+ * @return - A newly allocated string containing the joined result.
+ */
+char *str_join(char **strings, const char *delimiter)
+```
+
 ### - str_trim()
 
 Removes leading and trailing whitespace characters from a string.

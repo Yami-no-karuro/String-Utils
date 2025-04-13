@@ -85,6 +85,40 @@ char **str_split(const char *subject, char delimiter)
 }
 
 /**
+ * Joins an array of strings into a single string using the specified delimiter.
+ *
+ * @param strings - A NULL-terminated array of strings to join.
+ * @param delimiter - The string to insert between each pair of strings.
+ * @return - A newly allocated string containing the joined result.
+ */
+char *str_join(char **strings, const char *delimiter)
+{
+    size_t total_len = 0;
+    size_t delim_len = strlen(delimiter);
+    size_t count = 0;
+
+    for (char **s = strings; *s; s++) {
+        total_len += strlen(*s);
+        count++;
+    }
+
+    total_len += (count - 1) * delim_len;
+    char *result = malloc(total_len + 1);
+    if (!result)
+        return NULL;
+
+    result[0] = '\0';
+
+    for (size_t i = 0; i < count; ++i) {
+        strcat(result, strings[i]);
+        if (i < count - 1)
+            strcat(result, delimiter);
+    }
+
+    return result;
+}
+
+/**
  * Removes leading and trailing whitespace characters from a string.
  *
  * @param subject - The original string to trim.
