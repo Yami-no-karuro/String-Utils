@@ -19,7 +19,7 @@ int str_contains(const char *subject, const char *search);
 
 ### - str_count()
 
-Counts the number of non-overlapping occurrences of a substring.
+Counts the number of non-overlapping occurrences of a substring within a string.
 
 ```c
 /**
@@ -32,9 +32,25 @@ Counts the number of non-overlapping occurrences of a substring.
 int str_count(const char *subject, const char *search)
 ```
 
+### - str_split()
+
+Splits a string into tokens based on a specified delimiter.
+The caller is responsible for freeing the returned array.
+
+```c
+/**
+ * Splits a string into tokens based on a specified delimiter.
+ *
+ * @param subject - The original string to split.
+ * @param delimiter - The character used as the delimiter to split the string.
+ * @return - A NULL-terminated array of strings (tokens).
+ */
+char **str_split(const char *subject, char delimiter)
+```
+
 ### - str_trim()
 
-Removes whitespace (such as spaces, tabs, and newlines) from the beginning and end of a string.  
+Removes leading and trailing whitespace characters from a string.
 The caller is responsible for freeing the returned string.
 
 ```c
@@ -49,8 +65,8 @@ char *str_trim(const char *subject);
 
 ### - str_replace()
 
-Allocates and returns a new string where the first occurrence of 'search' in 'subject' is replaced with 'replace'.  
-If the 'search' substring is not found, NULL is returned.  
+Replaces the first occurrence of a substring within a string with another substring.
+If the 'search' substring is not found, NULL is returned.
 The caller is responsible for freeing the returned string.
 
 ```c
@@ -67,7 +83,7 @@ char *str_replace(const char *subject, const char *search, const char *replace);
 
 ### - str_replace_all()
 
-Iteratively replaces every instance of 'search' in 'subject' with 'replace', returning a newly allocated string containing all the modifications.  
+Replaces all occurrences of a substring within a string with another substring.
 The caller is responsible for freeing the returned string.
 
 ```c

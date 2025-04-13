@@ -37,6 +37,54 @@ int str_count(const char *subject, const char *search)
 }
 
 /**
+ * Splits a string into tokens based on a specified delimiter.
+ *
+ * @param subject - The original string to split.
+ * @param delimiter - The character used as the delimiter to split the string.
+ * @return - A NULL-terminated array of strings (tokens).
+ */
+char **str_split(const char *subject, char delimiter)
+{
+    size_t count = 1;
+    for (const char *s = subject; *s; ++s)
+        if (*s == delimiter)
+            count++;
+
+    char **result = (char **)malloc((count + 1) * sizeof(char *));
+    if (!result)
+        return NULL;
+
+    size_t idx = 0;
+    const char *start = subject;
+    for (const char *s = subject; ; ++s) {
+        if (*s == delimiter || *s == '\0') {
+
+            size_t len = s - start;
+            result[idx] = (char *)malloc(len + 1);
+            if (!result[idx]) {
+                for (size_t j = 0; j < idx; ++j)
+                    free(result[j]);
+
+                free(result);
+                return NULL;
+            }
+
+            strncpy(result[idx], start, len);
+            result[idx][len] = '\0';
+            idx++;
+
+            if (*s == '\0')
+                break;
+
+            start = s + 1;
+        }
+    }
+
+    result[idx] = NULL;
+    return result;
+}
+
+/**
  * Removes leading and trailing whitespace characters from a string.
  *
  * @param subject - The original string to trim.
