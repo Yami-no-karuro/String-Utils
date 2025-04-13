@@ -100,6 +100,9 @@ char *str_trim(const char *subject)
     while (end > start && isspace((unsigned char)*end))
         end--;
 
+    if (end < start)
+        return strdup("");
+
     size_t trimmed_len = end - start + 1;
     char *result = (char *)malloc(trimmed_len + 1);
     if (!result)

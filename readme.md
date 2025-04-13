@@ -29,7 +29,7 @@ Counts the number of non-overlapping occurrences of a substring within a string.
  * @param search - The substring to look for.
  * @return - The number of times the substring appears in the subject string.
  */
-int str_count(const char *subject, const char *search)
+int str_count(const char *subject, const char *search);
 ```
 
 ### - str_split()
@@ -45,7 +45,19 @@ The caller is responsible for freeing the returned array.
  * @param delimiter - The character used as the delimiter to split the string.
  * @return - A NULL-terminated array of strings (tokens).
  */
-char **str_split(const char *subject, char delimiter)
+char **str_split(const char *subject, char delimiter);
+
+// ====
+// The caller is responsible for freeing the returned array.
+// Here's an example of a dedicated free function implementation.
+// ====
+void str_split_free(char **tokens)
+{
+    for (char **p = tokens; *p; p++)
+        free(*p);
+
+    free(tokens);
+}
 ```
 
 ### - str_trim()
