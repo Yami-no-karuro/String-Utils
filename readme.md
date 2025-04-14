@@ -91,6 +91,21 @@ The caller is responsible for freeing the returned string.
 char *str_trim(const char *subject);
 ```
 
+### - str_strip_punct()
+
+Removes punctuation characters from the beginning and end of a string.  
+The caller is responsible for freeing the returned string.
+
+```c
+/**
+ * Removes punctuation characters from the beginning and end of a string.
+ *
+ * @param subject - The input string to clean.
+ * @return - A newly allocated string with punctuation removed.
+ */
+char *str_strip_punct(const char *subject);
+```
+
 ### - str_replace()
 
 Replaces the first occurrence of a substring within a string with another substring.  
